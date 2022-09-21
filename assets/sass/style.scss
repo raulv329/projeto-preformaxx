@@ -320,4 +320,41 @@ body{
         opacity: 1;
     }
 }
+
+// Animate the size, outside
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+$colors: (
+  fill: #326da8,
+  pulse: #004b97, 
+  close: #00254A, 
+  raise: #fff, 
+  up: #e7e7e7,   
+);
+
+@each $pulse-btn, $color in $colors {
+  .#{$pulse-btn} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+pulse-btn {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
  
