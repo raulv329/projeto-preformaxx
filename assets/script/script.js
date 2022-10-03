@@ -15,18 +15,18 @@ $(document).ready(function () {
             $('#btnGoTop').addClass('d-none');
         }
 
-        bpAnimHeight.forEach(function (item) {
-            if (item.offsetTop >= scrollPosition && item.offsetTop <= scrollPosition + windowHeight) {
-                if ($(item.elem)) {
-                    const classAnim = $(item.elem).attr('aria-anim');
-                    if (!$(item.elem).hasClass(classAnim)) { 
-                        $(item.elem).addClass(classAnim);
+        bpAnimHeight.forEach(function (slid) {
+            if (slid.offsetTop >= scrollPosition && slid.offsetTop <= scrollPosition + windowHeight) {
+                if ($(slid.elem)) {
+                    const classAnim = $(slid.elem).attr('aria-anim');
+                    if (!$(slid.elem).hasClass(classAnim)) { 
+                        $(slid.elem).addClass(classAnim);
                     }
                 }
             } else {
-                if ($(item.elem)) {
-                    const classAnim = $(item.elem).attr('aria-anim');
-                    $(item.elem).removeClass(classAnim);
+                if ($(slid.elem)) {
+                    const classAnim = $(slid.elem).attr('aria-anim');
+                    $(slid.elem).removeClass(classAnim);
                 }
             }
         });
